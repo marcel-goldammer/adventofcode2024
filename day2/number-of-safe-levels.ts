@@ -16,7 +16,6 @@ export function numberOfSafeLevels(levels: number[][]): number {
     );
     if ((allIncreasing || allDecreasing) && minMaxSteps) {
       safeLevels++;
-    } else {
     }
   }
   return safeLevels;
