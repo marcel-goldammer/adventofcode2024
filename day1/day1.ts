@@ -1,19 +1,15 @@
-import * as fs from 'fs';
-import * as path from 'path';
 import { getDirname } from '../utils/get-dirname';
+import { readFile } from '../utils/read-file';
 
-const filePath = path.join(getDirname(import.meta.url), 'input');
 const leftList: number[] = [];
 const rightList: number[] = [];
 const distances: number[] = [];
 
-fs.readFileSync(filePath, 'utf-8')
-  .split('\n')
-  .forEach((line) => {
-    const split = line.split('   ');
-    leftList.push(parseInt(split[0]));
-    rightList.push(parseInt(split[1]));
-  });
+readFile(getDirname(import.meta.url), 'input').forEach((line) => {
+  const split = line.split('   ');
+  leftList.push(parseInt(split[0]));
+  rightList.push(parseInt(split[1]));
+});
 
 leftList.sort();
 rightList.sort();
